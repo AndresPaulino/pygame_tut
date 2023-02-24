@@ -37,7 +37,8 @@ def draw_window(player1_surf, player1_rect):
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             # start drawing the spell circle asynchronously at the mouse click position
             center_pos = event.pos
-            threading.Thread(target=storm_gust, args=(center_pos, WIN,)).start()
+            above_player_head_pos = (player1_rect.x + 48, player1_rect.y + 48 - 10)
+            threading.Thread(target=storm_gust, args=(center_pos, above_player_head_pos, WIN,)).start()
                 
 
     pygame.display.update()

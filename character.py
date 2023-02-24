@@ -23,6 +23,6 @@ def get_player_surface(direction):
         return pygame.transform.scale(character_sprite_sheet.subsurface(0, 96, 32, 32), (SPRITE_HEIGHT, SPRITE_WIDTH))
     elif direction == "right":
         return pygame.transform.scale(character_sprite_sheet.subsurface(0, 144, 32, 32), (SPRITE_HEIGHT, SPRITE_WIDTH))
-    
+
 # Player rect
 player1_rect = pygame.Rect(SPRITE_SPAWN_X, SPRITE_SPAWN_Y, SPRITE_WIDTH, SPRITE_HEIGHT)

@@ -25,8 +25,8 @@ def main():
         
         keys_pressed = pygame.key.get_pressed()
         def handle_direction_change():
-            default_direction = "down"
-            direction = player1_handle_movement(keys_pressed, player1_rect, default_direction)
+            last_direction = "down"
+            direction = player1_handle_movement(keys_pressed, player1_rect, last_direction)
             return direction
         
         player_surface = get_player_surface(handle_direction_change())
