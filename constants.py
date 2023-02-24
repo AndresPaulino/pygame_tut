@@ -3,7 +3,6 @@ import os
 import threading
 from skills import storm_gust
 
-
 # Needed to use fonts and sounds
 pygame.font.init() 
 pygame.mixer.init()
@@ -27,10 +26,9 @@ YELLOW = (255, 255, 0)
 BG = pygame.transform.scale(pygame.image.load(os.path.join("Assets", "prontera.png")), (WIDTH, HEIGHT))
 
 # Window
-def draw_window(player1_surf, player2_surf, player1_rect, player2_rect):
+def draw_window(player1_surf, player1_rect):
     WIN.blit(BG, (0, 0))
     WIN.blit(player1_surf, (player1_rect.x, player1_rect.y))
-    WIN.blit(player2_surf, (player2_rect.x, player2_rect.y))
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

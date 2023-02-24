@@ -1,13 +1,13 @@
 import pygame
 from pygame.locals import *
-from movement import player1_handle_movement, player2_handle_movement
-from character import PLAYER1, PLAYER2, player1_coords, player2_coords
-from constants import FPS, WIN, draw_window
+from movement import *
+from character import *
+from constants import FPS, draw_window
 
 # Setup the clock
 clock = pygame.time.Clock()
 
-# Main Loop
+# Main Game Loop
 def main():
     pygame.init()
     
@@ -24,10 +24,14 @@ def main():
             
         
         keys_pressed = pygame.key.get_pressed()
-        player1_handle_movement(keys_pressed, player1_coords)
-        player2_handle_movement(keys_pressed, player2_coords)
+        def handle_direction_change():
+            default_direction = "down"
+            direction = player1_handle_movement(keys_pressed, player1_rect, default_direction)
+            return direction
         
-        draw_window(PLAYER1, PLAYER2, player1_coords, player2_coords)
+        player_surface = get_player_surface(handle_direction_change())
+        
+        draw_window(player_surface, player1_rect)
         
     main()
 
